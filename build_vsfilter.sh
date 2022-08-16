@@ -81,7 +81,8 @@ base_rev_num=`git rev-list 3.0.0.4 | wc -l | awk '{print $1}'`
 ((rev_num=$cur_rev_num-$base_rev_num+4))
 
 rev_sha1=`git rev-parse HEAD`
-rev_tag=`git describe --tag --abbrev=0`
+#rev_tag=`git describe --tag --abbrev=0`
+rev_tag="3.9.9"
 ver_major=`echo $rev_tag | awk -F$'.' '{print $1}'`
 ver_minor=`echo $rev_tag | awk -F$'.' '{print $2}'`
 ver_patch=`echo $rev_tag | awk -F$'.' '{print $3}'`
@@ -137,7 +138,7 @@ devenv "'$solution'" /'$action' "'$configuration'" /project "'$project'"
 
 elif [ "$compiler"x == "vs2019"x ]; then
 echo '
-CALL "'$common_tools'../../VC/Auxiliary/Build/vcvarsall.bat" '$platform_type'
+CALL "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" '$platform_type'
 msbuild /m /t:'$project''$action' /p:Configuration='$configuration' /p:Platform='$platform' /p:BuildProjectReferences=false "'$solution'"
 exit
 ' | cmd
