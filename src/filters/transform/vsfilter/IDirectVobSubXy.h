@@ -48,6 +48,7 @@ namespace DirectVobSubXyOptions
         SIZE_USER_SPECIFIED_LAYOUT_SIZE,
         SIZE_LAYOUT_WITH,//read only
         SIZE_AR_ADJUSTED_VIDEO,
+        SIZE_ASS_LAYOUT_RESOLUTION,
 
         RECT_VIDEO_OUTPUT,
         RECT_SUBTITLE_TARGET,

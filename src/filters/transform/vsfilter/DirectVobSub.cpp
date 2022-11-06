@@ -819,6 +819,9 @@ HRESULT DirectVobSubImpl::DoGetField( unsigned field, void *value )
     case SIZE_LAYOUT_WITH:
         {
             SIZE *size_value = (SIZE*)value;
+            *size_value = m_xy_size_opt[DirectVobSubXyOptions::SIZE_ASS_LAYOUT_RESOLUTION];
+            if (size_value->cx > 0 && size_value->cy > 0)
+                break;
             switch(m_xy_int_opt[INT_LAYOUT_SIZE_OPT])
             {
             case LAYOUT_SIZE_OPT_ORIGINAL_VIDEO_SIZE:

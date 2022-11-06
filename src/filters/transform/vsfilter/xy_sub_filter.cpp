@@ -1710,6 +1710,7 @@ void XySubFilter::SetSubtitle( ISubStream* pSubStream, bool fApplyDefStyle /*= t
     CAutoLock cAutolock(&m_csFilter);
 
     CSize playres(0,0);
+    CSize layoutres(0,0);
     m_video_yuv_matrix_decided_by_sub = ColorConvTable::NONE;
     m_video_yuv_range_decided_by_sub = ColorConvTable::RANGE_NONE;
     if(pSubStream)
@@ -1780,6 +1781,7 @@ void XySubFilter::SetSubtitle( ISubStream* pSubStream, bool fApplyDefStyle /*= t
             }
             pRTS->Deinit();
             playres = pRTS->m_dstScreenSize;
+            layoutres = pRTS->m_layout_size;
             m_xy_bool_opt[BOOL_IS_BITMAP] = false;
             m_xy_bool_opt[BOOL_IS_MOVABLE] = ((pRTS->IsMovable()) && ((pRTS->IsSimple()) || (m_xy_bool_opt[BOOL_ALLOW_MOVING])));
         }
@@ -1883,6 +1885,7 @@ void XySubFilter::SetSubtitle( ISubStream* pSubStream, bool fApplyDefStyle /*= t
     SetRgbOutputLevel();
 
     m_xy_size_opt[SIZE_ASS_PLAY_RESOLUTION] = playres;
+    m_xy_size_opt[SIZE_ASS_LAYOUT_RESOLUTION] = layoutres;
 
     if (CComQIPtr<IXySubRenderProvider>(pSubStream))
     {
