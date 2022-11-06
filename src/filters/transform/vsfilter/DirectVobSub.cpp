@@ -1023,6 +1023,9 @@ STDMETHODIMP CDirectVobSub::XyGetSize( int field, SIZE *value )
     switch(field)
     {
     case SIZE_LAYOUT_WITH:
+        *value = m_xy_size_opt[DirectVobSubXyOptions::SIZE_ASS_LAYOUT_RESOLUTION];
+        if (value->cx > 0 && value->cy > 0)
+            break;
         switch(m_xy_int_opt[DirectVobSubXyOptions::INT_LAYOUT_SIZE_OPT])
         {
         case LAYOUT_SIZE_OPT_FOLLOW_ORIGINAL_VIDEO_SIZE:

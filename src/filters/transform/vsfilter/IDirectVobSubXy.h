@@ -38,6 +38,7 @@ namespace DirectVobSubXyOptions
         SIZE_ASS_PLAY_RESOLUTION,
         SIZE_USER_SPECIFIED_LAYOUT_SIZE,
         SIZE_LAYOUT_WITH,//read only
+        SIZE_ASS_LAYOUT_RESOLUTION,
         SIZE_COUNT
     };
     enum//string

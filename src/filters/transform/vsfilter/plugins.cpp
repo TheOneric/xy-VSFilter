@@ -204,6 +204,7 @@ public:
         if(m_SubPicProviderId != (DWORD_PTR)(ISubPicProvider*)m_pSubPicProvider)
         {
             CSize playres(0,0);
+            CSize layoutres(0,0);
             CLSID clsid;
             CComQIPtr<IPersist> tmp = m_pSubPicProvider;
             tmp->GetClassID(&clsid);
@@ -211,8 +212,10 @@ public:
             {
                 CRenderedTextSubtitle* pRTS = dynamic_cast<CRenderedTextSubtitle*>((ISubPicProvider*)m_pSubPicProvider);
                 playres = pRTS->m_dstScreenSize;
+                layoutres = pRTS->m_layout_size;
             }
             XySetSize(SIZE_ASS_PLAY_RESOLUTION, playres);
+            XySetSize(SIZE_ASS_LAYOUT_RESOLUTION, layoutres);
 
             m_simple_provider->SetSubPicProvider(m_pSubPicProvider);
             m_SubPicProviderId = (DWORD_PTR)(ISubPicProvider*)m_pSubPicProvider;

@@ -1821,6 +1821,7 @@ void CDirectVobSubFilter::SetSubtitle(ISubStream* pSubStream, bool fApplyDefStyl
     CAutoLock cAutolock(&m_csQueueLock);
 
     CSize playres(0,0);
+    CSize layoutres(0,0);
     m_video_yuv_matrix_decided_by_sub = ColorConvTable::NONE;
     m_video_yuv_range_decided_by_sub = ColorConvTable::RANGE_NONE;
 	if(pSubStream)
@@ -1912,6 +1913,7 @@ void CDirectVobSubFilter::SetSubtitle(ISubStream* pSubStream, bool fApplyDefStyl
             }
             pRTS->Deinit();
             playres = pRTS->m_dstScreenSize;
+            layoutres = pRTS->m_layout_size;
         }
         else if(clsid == __uuidof(CRenderedHdmvSubtitle))
         {
@@ -1965,6 +1967,7 @@ void CDirectVobSubFilter::SetSubtitle(ISubStream* pSubStream, bool fApplyDefStyl
     SetYuvMatrix();
 
     XySetSize(SIZE_ASS_PLAY_RESOLUTION, playres);
+    XySetSize(SIZE_ASS_LAYOUT_RESOLUTION, layoutres);
     if(m_simple_provider)
         m_simple_provider->SetSubPicProvider(CComQIPtr<ISubPicProviderEx>(pSubStream));
 }
