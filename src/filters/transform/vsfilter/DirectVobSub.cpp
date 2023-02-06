@@ -1142,13 +1142,13 @@ CDirectVobSub::CDirectVobSub( const Option *options, CCritSec * pLock )
     if(m_xy_int_opt[INT_SUBPIXEL_POS_LEVEL]<0) m_xy_int_opt[INT_SUBPIXEL_POS_LEVEL]=0;
     else if(m_xy_int_opt[INT_SUBPIXEL_POS_LEVEL]>=SubpixelPositionControler::MAX_COUNT) m_xy_int_opt[INT_SUBPIXEL_POS_LEVEL]=SubpixelPositionControler::EIGHT_X_EIGHT;
 
-    CString str_layout_size_opt = theApp.GetProfileString(ResStr(IDS_R_GENERAL), ResStr(IDS_RG_LAYOUT_SIZE_OPT), _T("Use Original Video Size"));
+    CString str_layout_size_opt = theApp.GetProfileString(ResStr(IDS_R_GENERAL), ResStr(IDS_RG_LAYOUT_SIZE_OPT), _T("Original Video Size (vsfilter2.39)"));
     str_layout_size_opt.MakeLower();
     if (str_layout_size_opt.Left(14)==_T("user specified"))
     {
         m_xy_int_opt[INT_LAYOUT_SIZE_OPT] = LAYOUT_SIZE_OPT_USER_SPECIFIED;
     }
-    else if (str_layout_size_opt.Left(26)==_T("use ar adjusted video size"))
+    else if (str_layout_size_opt.Left(26)==_T("ar adjusted video size"))
     {
         m_xy_int_opt[INT_LAYOUT_SIZE_OPT] = LAYOUT_SIZE_OPT_AR_ADJUSTED_VIDEO_SIZE;
     }
@@ -1356,17 +1356,17 @@ STDMETHODIMP CDirectVobSub::UpdateRegistry()
     theApp.WriteProfileInt(ResStr(IDS_R_PERFORMANCE), ResStr(IDS_RP_SUBPIXEL_POS_LEVEL), m_xy_int_opt[INT_SUBPIXEL_POS_LEVEL]);
     theApp.WriteProfileInt(ResStr(IDS_R_GENERAL), ResStr(IDS_RG_USE_UPSTREAM_PREFERRED_ORDER), m_xy_bool_opt[BOOL_FOLLOW_UPSTREAM_PREFERRED_ORDER]);
 
-    CString str_layout_size_opt = _T("Use Original Video Size");
+    CString str_layout_size_opt = _T("Original Video Size (vsfilter2.39)");
     switch(m_xy_int_opt[INT_LAYOUT_SIZE_OPT])
     {
     case LAYOUT_SIZE_OPT_USER_SPECIFIED:
         str_layout_size_opt = _T("User Specified");
         break;
     case LAYOUT_SIZE_OPT_AR_ADJUSTED_VIDEO_SIZE:
-        str_layout_size_opt = _T("Use AR Adjusted Video Size");
+        str_layout_size_opt = _T("AR Adjusted Video Size");
         break;
     default:
-        str_layout_size_opt = _T("Use Original Video Size");
+        str_layout_size_opt = _T("Original Video Size (vsfilter2.39)");
         break;
     }
     theApp.WriteProfileString(ResStr(IDS_R_GENERAL), ResStr(IDS_RG_LAYOUT_SIZE_OPT), str_layout_size_opt);
@@ -1559,13 +1559,13 @@ CDVS4XySubFilter::CDVS4XySubFilter( const Option *options, CCritSec * pLock )
     if(m_xy_int_opt[INT_SUBPIXEL_POS_LEVEL]<0) m_xy_int_opt[INT_SUBPIXEL_POS_LEVEL]=0;
     else if(m_xy_int_opt[INT_SUBPIXEL_POS_LEVEL]>=SubpixelPositionControler::MAX_COUNT) m_xy_int_opt[INT_SUBPIXEL_POS_LEVEL]=SubpixelPositionControler::EIGHT_X_EIGHT;
 
-    CString str_layout_size_opt = theApp.GetProfileString(ResStr(IDS_R_GENERAL), ResStr(IDS_RG_LAYOUT_SIZE_OPT), _T("Use Original Video Size"));
+    CString str_layout_size_opt = theApp.GetProfileString(ResStr(IDS_R_GENERAL), ResStr(IDS_RG_LAYOUT_SIZE_OPT), _T("Original Video Size (vsfilter2.39)"));
     str_layout_size_opt.MakeLower();
     if (str_layout_size_opt.Left(14)==_T("user specified"))
     {
         m_xy_int_opt[INT_LAYOUT_SIZE_OPT] = LAYOUT_SIZE_OPT_USER_SPECIFIED;
     }
-    else if (str_layout_size_opt.Left(26)==_T("use ar adjusted video size"))
+    else if (str_layout_size_opt.Left(26)==_T("ar adjusted video size"))
     {
         m_xy_int_opt[INT_LAYOUT_SIZE_OPT] = LAYOUT_SIZE_OPT_AR_ADJUSTED_VIDEO_SIZE;
     }
@@ -1760,17 +1760,17 @@ STDMETHODIMP CDVS4XySubFilter::UpdateRegistry()
     theApp.WriteProfileInt(ResStr(IDS_R_PERFORMANCE), ResStr(IDS_RP_MAX_CACHE_SIZE_MB), m_xy_int_opt[INT_MAX_CACHE_SIZE_MB]);
     theApp.WriteProfileInt(ResStr(IDS_R_PERFORMANCE), ResStr(IDS_RP_SUBPIXEL_POS_LEVEL), m_xy_int_opt[INT_SUBPIXEL_POS_LEVEL]);
 
-    CString str_layout_size_opt = _T("Use Original Video Size");
+    CString str_layout_size_opt = _T("Original Video Size (vsfilter2.39)");
     switch(m_xy_int_opt[INT_LAYOUT_SIZE_OPT])
     {
     case LAYOUT_SIZE_OPT_USER_SPECIFIED:
         str_layout_size_opt = _T("User Specified");
         break;
     case LAYOUT_SIZE_OPT_AR_ADJUSTED_VIDEO_SIZE:
-        str_layout_size_opt = _T("Use AR Adjusted Video Size");
+        str_layout_size_opt = _T("AR Adjusted Video Size");
         break;
     default:
-        str_layout_size_opt = _T("Use Original Video Size");
+        str_layout_size_opt = _T("Original Video Size (vsfilter2.39)");
         break;
     }
     theApp.WriteProfileString(ResStr(IDS_R_GENERAL), ResStr(IDS_RG_LAYOUT_SIZE_OPT), str_layout_size_opt);

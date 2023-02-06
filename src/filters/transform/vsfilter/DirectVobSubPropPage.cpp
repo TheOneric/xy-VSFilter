@@ -1167,9 +1167,9 @@ void CDVSMorePPage::UpdateControlData(bool fSave)
         }
 
         m_combo_layout_size_opt.ResetContent();
-        m_combo_layout_size_opt.AddString( CString(_T("Use Original Video Size")) );
+        m_combo_layout_size_opt.AddString( CString(_T("Original Video Size (vsfilter2.39)")) );
         m_combo_layout_size_opt.SetItemData(0, DirectVobSubXyOptions::LAYOUT_SIZE_OPT_ORIGINAL_VIDEO_SIZE);
-        m_combo_layout_size_opt.AddString( CString(_T("Use AR Adjusted Video Size")) );
+        m_combo_layout_size_opt.AddString( CString(_T("AR Adjusted Video Size")) );
         m_combo_layout_size_opt.SetItemData(1, DirectVobSubXyOptions::LAYOUT_SIZE_OPT_AR_ADJUSTED_VIDEO_SIZE);
         m_combo_layout_size_opt.AddString( CString(_T("Customize ...")) );
         m_combo_layout_size_opt.SetItemData(2, DirectVobSubXyOptions::LAYOUT_SIZE_OPT_USER_SPECIFIED);
@@ -2210,9 +2210,9 @@ void CXySubFilterMorePPage::UpdateControlData(bool fSave)
         }
 
         m_combo_layout_size_opt.ResetContent();
-        m_combo_layout_size_opt.AddString( CString(_T("Use Original Video Size")) );
+        m_combo_layout_size_opt.AddString( CString(_T("Original Video Size (vsfilter2.39)")) );
         m_combo_layout_size_opt.SetItemData(0, DirectVobSubXyOptions::LAYOUT_SIZE_OPT_ORIGINAL_VIDEO_SIZE);
-        m_combo_layout_size_opt.AddString( CString(_T("Use AR Adjusted Video Size")) );
+        m_combo_layout_size_opt.AddString( CString(_T("AR Adjusted Video Size")) );
         m_combo_layout_size_opt.SetItemData(1, DirectVobSubXyOptions::LAYOUT_SIZE_OPT_AR_ADJUSTED_VIDEO_SIZE);
         m_combo_layout_size_opt.AddString( CString(_T("Customize ...")) );
         m_combo_layout_size_opt.SetItemData(2, DirectVobSubXyOptions::LAYOUT_SIZE_OPT_USER_SPECIFIED);
